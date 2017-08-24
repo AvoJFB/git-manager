@@ -1,0 +1,33 @@
+{
+  "name": "git-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "",
+    "server": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvoJFB/git-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AvoJFB/git-manager/issues"
+  },
+  "homepage": "https://github.com/AvoJFB/git-manager#readme",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "nodegit": "^0.20.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "nodemon": "^1.11.0"
+  }
+}
