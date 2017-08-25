@@ -1,9 +1,17 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Nav from './Nav';
+import Content from './Content';
 
 const Root = () => (
-  <div className="container">
-    <h1>Git Manager</h1>
-  </div>
+  <BrowserRouter>
+    <div>
+      <Nav />
+      <div className="container">
+        <Content />
+      </div>
+    </div>
+  </BrowserRouter>
 );
 
 export default Root;
