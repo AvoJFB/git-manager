@@ -20,7 +20,9 @@ const Nav = () => (
       </div>
 
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul className="nav navbar-nav" />
+        <ul className="nav navbar-nav">
+          <li><Link to={'repos'}>My Repos</Link></li>
+        </ul>
         <ul className="nav navbar-nav navbar-right">
           <li><Link to={'login'}>Login</Link></li>
         </ul>
