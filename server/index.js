@@ -11,6 +11,7 @@ const port = 4000;
 app.use(cors());
 app.use(bodyParser());
 
+router.get('/repos', repos.getNames);
 router.post('/repos', repos.init);
 router.post('/repos/clone', repos.clone);
 router.get('/repos/:name', repos.open);
