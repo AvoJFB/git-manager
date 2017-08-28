@@ -1,11 +1,15 @@
 const Koa = require('koa');
 const route = require('koa-route');
+const cors = require('koa2-cors');
 const bodyParser = require('koa-bodyparser');
 const repos = require('./controllers/repos');
 
 const app = new Koa();
 const port = 4000;
 
+app.use(cors({
+  origin: '*',
+}));
 app.use(bodyParser());
 app.use(route.post('/repos', repos.init));
 app.use(route.post('/repos/clone', repos.clone));
