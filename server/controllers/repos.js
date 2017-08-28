@@ -31,3 +31,18 @@ module.exports.clone = async (ctx, next) => {
 
   await next();
 };
+
+module.exports.open = async (ctx, next) => {
+  try {
+    const repoPath = path.join(REPO_DIR, ctx.params.name);
+    const repo = await Git.Repository.open(repoPath);
+    console.log(`Repository ${ctx.params.name} opened succesfully`);
+    console.log(repo);
+    ctx.status = 200;
+  } catch (e) {
+    console.log(e);
+    ctx.status = 400;
+  }
+
+  await next();
+};
