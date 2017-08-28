@@ -21,6 +21,7 @@ module.exports.clone = async (ctx, next) => {
   try {
     const repoPath = path.join(REPO_DIR, ctx.request.body.name);
     const repo = await Git.Clone.clone(ctx.request.body.url, repoPath);
+    console.log(`Repository ${ctx.request.body.name} cloned succesfully`);
     console.log(repo);
     ctx.status = 200;
   } catch (e) {
