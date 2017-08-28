@@ -8,6 +8,7 @@ const port = 4000;
 
 app.use(bodyParser());
 app.use(route.post('/repos', repos.init));
+app.use(route.post('/repos/clone', repos.clone));
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
