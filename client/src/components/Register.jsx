@@ -1,10 +1,13 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Login extends React.Component {
+class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstName: '',
+      lastName: '',
       username: '',
       password: '',
     };
@@ -21,7 +24,31 @@ class Login extends React.Component {
   render() {
     return (
       <form className="form-horizontal text-center">
-        <legend>Login</legend>
+        <legend>Register</legend>
+        <div className="form-group">
+          <div className="col-lg-6 col-lg-offset-3">
+            <input
+              value={this.state.firstName}
+              onChange={this.handleInputChange}
+              type="text"
+              className="form-control"
+              name="firstName"
+              placeholder="First Name"
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="col-lg-6 col-lg-offset-3">
+            <input
+              value={this.state.lastName}
+              onChange={this.handleInputChange}
+              type="text"
+              className="form-control"
+              name="lastName"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
         <div className="form-group">
           <div className="col-lg-6 col-lg-offset-3">
             <input
@@ -60,4 +87,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Register;

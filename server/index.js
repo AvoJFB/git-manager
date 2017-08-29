@@ -2,19 +2,37 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const cors = require('koa2-cors');
 const bodyParser = require('koa-bodyparser');
-const repos = require('./controllers/repos');
+const logger = require('koa-logger');
+const passport = require('koa-passport');
+const mongoose = require('mongoose');
+const reposController = require('./controllers/repos');
+const DB_URL = require('./dbConfig').DB_URL;
 
 const app = new Koa();
 const router = new Router();
 const port = 4000;
 
+mongoose.Promise = global.Promise;
+mongoose.connect(DB_URL);
+
+mongoose.connection.on('connected', () => {
+  console.log(`Connected to: ${DB_URL}`);
+});
+
+mongoose.connection.on('error', (err) => {
+  console.log(`Database error: ${err}`);
+});
+
 app.use(cors());
 app.use(bodyParser());
+app.use(logger());
+app.use(passport.initialize());
+app.use(passport.session());
 
-router.get('/repos', repos.getNames);
-router.post('/repos', repos.init);
-router.post('/repos/clone', repos.clone);
-router.get('/repos/:name', repos.open);
+router.get('/repos', reposController.getNames);
+router.post('/repos', reposController.init);
+router.post('/repos/clone', reposController.clone);
+router.get('/repos/:name', reposController.open);
 
 app.use(router.routes());
 app.use(router.allowedMethods());
