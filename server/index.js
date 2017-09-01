@@ -29,10 +29,11 @@ app.use(logger());
 app.use(passport.initialize());
 app.use(passport.session());
 
-router.get('/repos', reposController.getNames);
+router.get('/repos', reposController.getRepos);
 router.post('/repos', reposController.init);
 router.post('/repos/clone', reposController.clone);
 router.get('/repos/:name', reposController.open);
+router.del('repos/:name', reposController.deleteRepo);
 
 app.use(router.routes());
 app.use(router.allowedMethods());

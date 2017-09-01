@@ -1,5 +1,6 @@
 const Git = require('nodegit');
 const path = require('path');
+const fse = require('fs-extra');
 const REPO_DIR = require('../config').REPO_DIR;
 const utils = require('../utils');
 
@@ -48,9 +49,22 @@ module.exports.open = async (ctx, next) => {
   await next();
 };
 
-module.exports.getNames = async (ctx, next) => {
+module.exports.getRepos = async (ctx, next) => {
   try {
     ctx.body = utils.getDirectories(REPO_DIR).map(dir => path.basename(dir));
+    ctx.status = 200;
+  } catch (e) {
+    console.log(e);
+    ctx.status = 400;
+  }
+
+  await next();
+};
+
+module.exports.deleteRepo = async (ctx, next) => {
+  try {
+    await fse.remove(path.join(REPO_DIR, ctx.params.name));
+    console.log(`Repo ${ctx.params.name} deleted successfully`)
     ctx.status = 200;
   } catch (e) {
     console.log(e);
