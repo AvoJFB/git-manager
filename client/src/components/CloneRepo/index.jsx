@@ -30,6 +30,7 @@ export default class CloneRepo extends React.Component {
     try {
       await axios.post(`${config.API_URL}/repos/clone`, repo);
       console.log(`Repository ${repo.name} cloned succesfully`);
+      this.props.history.push(`/repos/${repo.name}`);
     } catch (e) {
       console.log(e);
     }

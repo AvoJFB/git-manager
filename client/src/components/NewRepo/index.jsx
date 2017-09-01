@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import config from '../../../config';
 
-export default class NewRepo extends React.Component {
+class NewRepo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +28,7 @@ export default class NewRepo extends React.Component {
     try {
       await axios.post(`${config.API_URL}/repos`, repo);
       console.log(`Repository ${repo.name} created succesfully`);
+      this.props.history.push(`/repos/${repo.name}`);
     } catch (e) {
       console.log(e);
     }
@@ -64,3 +65,5 @@ export default class NewRepo extends React.Component {
     );
   }
 }
+
+export default withRouter(NewRepo);
