@@ -16,7 +16,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(DB_URL);
 
 mongoose.connection.on('connected', () => {
-  console.log(`Connected to: ${DB_URL}`);
+  console.log('Connected to DB');
 });
 
 mongoose.connection.on('error', (err) => {
