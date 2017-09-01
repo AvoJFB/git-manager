@@ -49,9 +49,9 @@ module.exports.open = async (ctx, next) => {
 };
 
 module.exports.getNames = async (ctx, next) => {
-  const isDirectory = source => fs.lstatSync(source).isDirectory();
+  const isRepoDirectory = source => fs.lstatSync(source).isDirectory() && fs.existsSync(path.join(source, '.git'));
   const getDirectories = source => (
-    fs.readdirSync(source).map(name => path.join(source, name)).filter(isDirectory)
+    fs.readdirSync(source).map(name => path.join(source, name)).filter(isRepoDirectory)
   );
 
   try {
