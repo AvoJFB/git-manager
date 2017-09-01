@@ -6,7 +6,7 @@ const logger = require('koa-logger');
 const passport = require('koa-passport');
 const mongoose = require('mongoose');
 const reposController = require('./controllers/repos');
-const DB_URL = require('./dbConfig').DB_URL;
+const DB_URL = require('./secretConfig').DB_URL;
 
 const app = new Koa();
 const router = new Router();
