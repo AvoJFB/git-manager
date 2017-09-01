@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import config from '../../../config';
 
-class NewRepo extends React.Component {
+export default class NewRepo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,5 +64,3 @@ class NewRepo extends React.Component {
     );
   }
 }
-
-export default NewRepo;

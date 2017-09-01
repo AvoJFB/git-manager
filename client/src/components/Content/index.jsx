@@ -8,7 +8,7 @@ import RepoPage from '../RepoPage/index';
 import NewRepo from '../NewRepo/index';
 import CloneRepo from '../CloneRepo/index';
 
-const Content = () => (
+export default () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route exact path="/login" component={Login} />
@@ -19,5 +19,3 @@ const Content = () => (
     <Route exact path="/repos/:name" component={RepoPage} />
   </Switch>
 );
-
-export default Content;

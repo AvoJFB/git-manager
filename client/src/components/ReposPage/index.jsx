@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import config from '../../../config';
 
-class ReposPage extends React.Component {
+export default class ReposPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,5 +30,3 @@ class ReposPage extends React.Component {
     );
   }
 }
-
-export default ReposPage;

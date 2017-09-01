@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import config from '../../../config';
 
-class RepoPage extends React.Component {
+export default class RepoPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,5 +23,3 @@ class RepoPage extends React.Component {
     );
   }
 }
-
-export default RepoPage;

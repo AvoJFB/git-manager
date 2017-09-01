@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import config from '../../../config';
 
-class CloneRepo extends React.Component {
+export default class CloneRepo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -78,5 +78,3 @@ class CloneRepo extends React.Component {
     );
   }
 }
-
-export default CloneRepo;

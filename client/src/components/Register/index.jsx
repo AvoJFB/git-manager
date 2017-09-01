@@ -1,8 +1,7 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Register extends React.Component {
+export default class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,7 +74,9 @@ class Register extends React.Component {
         </div>
         <div className="form-group">
           <div className="col-lg-6 col-lg-offset-3">
-            <Link to="/"><button type="reset" className="btn btn-default">Cancel</button></Link>
+            <Link to="/">
+              <button type="reset" className="btn btn-default">Cancel</button>
+            </Link>
             <button
               type="submit"
               className="btn btn-primary"
@@ -86,5 +87,3 @@ class Register extends React.Component {
     );
   }
 }
-
-export default Register;

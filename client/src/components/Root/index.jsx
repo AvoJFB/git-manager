@@ -3,9 +3,9 @@ import { BrowserRouter } from 'react-router-dom';
 import Nav from '../Nav/index';
 import Content from '../Content/index';
 
-const Root = () => (
+export default () => (
   <BrowserRouter>
-    <div>
+    <div className="main-container">
       <Nav />
       <div className="container">
         <Content />
@@ -13,5 +13,3 @@ const Root = () => (
     </div>
   </BrowserRouter>
 );
-
-export default Root;
