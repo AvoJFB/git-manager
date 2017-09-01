@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import Login from './Login';
-import Register from './Register';
-import ReposPage from './ReposPage';
-import RepoPage from './RepoPage';
-import NewRepo from './NewRepo';
-import CloneRepo from './CloneRepo';
+import Home from '../Home/index';
+import Login from '../Login/index';
+import Register from '../Register/index';
+import ReposPage from '../ReposPage/index';
+import RepoPage from '../RepoPage/index';
+import NewRepo from '../NewRepo/index';
+import CloneRepo from '../CloneRepo/index';
 
 const Content = () => (
   <Switch>

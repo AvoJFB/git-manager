@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Nav from './Nav';
-import Content from './Content';
+import Nav from '../Nav/index';
+import Content from '../Content/index';
 
 const Root = () => (
   <BrowserRouter>

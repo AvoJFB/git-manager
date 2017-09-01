@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import config from '../../config';
+import config from '../../../config';
 
 class RepoPage extends React.Component {
   constructor(props) {

@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import config from '../../config';
+import config from '../../../config';
 
-class NewRepo extends React.Component {
+class CloneRepo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      url: '',
       name: '',
     };
 
@@ -23,11 +24,12 @@ class NewRepo extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const repo = {
+      url: this.state.url,
       name: this.state.name,
     };
     try {
-      await axios.post(`${config.API_URL}/repos`, repo);
-      console.log(`Repository ${repo.name} created succesfully`);
+      await axios.post(`${config.API_URL}/repos/clone`, repo);
+      console.log(`Repository ${repo.name} cloned succesfully`);
     } catch (e) {
       console.log(e);
     }
@@ -37,7 +39,19 @@ class NewRepo extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="form-horizontal text-center">
-          <legend>Create Repository</legend>
+          <legend>Clone Repository</legend>
+          <div className="form-group">
+            <div className="col-lg-6 col-lg-offset-3">
+              <input
+                value={this.state.url}
+                onChange={this.handleInputChange}
+                type="text"
+                className="form-control"
+                name="url"
+                placeholder="URL"
+              />
+            </div>
+          </div>
           <div className="form-group">
             <div className="col-lg-6 col-lg-offset-3">
               <input
@@ -65,4 +79,4 @@ class NewRepo extends React.Component {
   }
 }
 
-export default NewRepo;
+export default CloneRepo;

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import config from '../../config';
+import config from '../../../config';
 
 class ReposPage extends React.Component {
   constructor(props) {
