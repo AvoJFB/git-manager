@@ -1,7 +1,7 @@
 const Git = require('nodegit');
-const fs = require('fs');
 const path = require('path');
 const REPO_DIR = require('../config').REPO_DIR;
+const utils = require('../utils');
 
 module.exports.init = async (ctx, next) => {
   try {
@@ -49,14 +49,8 @@ module.exports.open = async (ctx, next) => {
 };
 
 module.exports.getNames = async (ctx, next) => {
-  const isRepoDirectory = source => fs.lstatSync(source).isDirectory() && fs.existsSync(path.join(source, '.git'));
-  const getDirectories = source => (
-    fs.readdirSync(source).map(name => path.join(source, name)).filter(isRepoDirectory)
-  );
-
   try {
-    const repoNames = getDirectories(REPO_DIR).map(dir => path.basename(dir));
-    ctx.body = repoNames;
+    ctx.body = utils.getDirectories(REPO_DIR).map(dir => path.basename(dir));
     ctx.status = 200;
   } catch (e) {
     console.log(e);
